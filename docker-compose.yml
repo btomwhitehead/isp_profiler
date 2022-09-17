@@ -2,14 +2,14 @@ version: "3.9"
 networks:
   prometheus-network:
 volumes:
-  prometheus-data:
-  grafana-data:
+  prometheus_data:
+  grafana_data:
 services:
   prometheus:
     image: ubuntu/prometheus:latest
     container_name: prometheus
     volumes:
-      - prometheus-data:/var/lib/prometheus/data
+      - prometheus_data:/var/lib/prometheus/data
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - prometheus-network
@@ -17,28 +17,28 @@ services:
       - 9090:9090
     restart: unless-stopped
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana-oss:latest
     container_name: grafana 
     volumes:
-      - grafana-data:/var/lib/grafana
+      - grafana_data:/var/lib/grafana
     ports:
       - 3000:3000 
     networks:
       - prometheus-network
     restart: unless-stopped
-  speetest-exporter:
+  speetest-probe:
     # https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/
     image: miguelndecarvalho/speedtest-exporter:latest
-    container_name: speedtest-exporter 
+    container_name: speedtest-probe
     environment:
       - SPEEDTEST_SERVER=20912 # Cool Ideas Cape Town
     networks:
       - prometheus-network
     restart: unless-stopped
-  smokeping-prober:
+  smokeping-probe:
     # https://github.com/SuperQ/smokeping_prober
     image: quay.io/superq/smokeping-prober:latest
-    container_name: smokeping-prober 
+    container_name: smokeping-probe
     volumes:
       - ./config/smokeping_prober.yml:/config.yml
     command: ["--config.file=config.yml"]
