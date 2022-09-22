@@ -1,6 +1,6 @@
 version: "3.9"
 networks:
-  prometheus-network:
+  prometheus_network:
 volumes:
   prometheus_data:
   grafana_data:
@@ -12,7 +12,7 @@ services:
       - prometheus_data:/var/lib/prometheus/data
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
-      - prometheus-network
+      - prometheus_network
     ports:
       - 9090:9090
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
     ports:
       - 3000:3000 
     networks:
-      - prometheus-network
+      - prometheus_network
     restart: unless-stopped
   speetest-probe:
     # https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/
@@ -33,7 +33,7 @@ services:
     environment:
       - SPEEDTEST_SERVER=20912 # Cool Ideas Cape Town
     networks:
-      - prometheus-network
+      - prometheus_network
     restart: unless-stopped
   smokeping-probe:
     # https://github.com/SuperQ/smokeping_prober
@@ -43,5 +43,5 @@ services:
       - ./config/smokeping_prober.yml:/config.yml
     command: ["--config.file=config.yml"]
     networks:
-      - prometheus-network
+      - prometheus_network
     restart: unless-stopped
