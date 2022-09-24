@@ -5,3 +5,19 @@ network's performance.
 
 The system makes use of Docker, Prometheus, Grafana and several probes to gather
 timeseries data on my line's performance.
+
+## Usage
+
+Run:
+
+```
+docker compose up -d
+```
+
+## Configuration
+
+TODO
+
+## Credits
+
+TODO
