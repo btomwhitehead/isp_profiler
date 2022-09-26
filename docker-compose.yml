@@ -42,7 +42,7 @@ services:
     image: quay.io/superq/smokeping-prober:latest
     container_name: smokeping-probe
     volumes:
-      - ./config/smokeping_prober.yml:/config.yml
+      - ./config/smokeping_probe.yml:/config.yml
     command: ["--config.file=config.yml"]
     networks:
       - prometheus-network
