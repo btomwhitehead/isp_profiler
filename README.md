@@ -40,12 +40,12 @@ TODO
 
 #### Speetest probe
 
-The speedtest probe has no config and the [Ookla Speedtest](speedtest.net/) integer
+The speedtest probe has no config and the [Ookla Speedtest](https://speedtest.net) integer
 server ID, `SPEEDTEST_SERVER`is set via an environment variable in
 [docker-compose.yml](./docker-compose.yml). This should be adjusted to a speedtest server of interest.
 
 #### Smokeping probe
 
-The smokeping probe config is located at [config/smokeping-probe.yml](./config/smokeping-probe.yml).
+The smokeping probe config is located at [config/smokeping-probe.yml](./config/smokeping_probe.yml).
 
-The `targets.hosts` list should be updated to endpoints of interest.
+The `targets.hosts` list should be updated to include endpoints of interest.
