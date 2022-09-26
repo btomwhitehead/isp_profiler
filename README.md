@@ -55,6 +55,9 @@ are automatically loaded. Dashboards that are created via this process
 do not support variables for connection names and so all connection names are
 hardcoded to `prometheus` to be consistent with the provisioned connection name.
 
+The default account credentials have not been changed and are username `admin`
+and password `admin`.
+
 ### Probes
 
 #### Speetest probe
@@ -67,3 +70,8 @@ The speedtest probe has no config and the Ookla Speedtest integer server ID,
 
 The smokeping probe is configured using the [smokeping config](./config/smokeping_probe.yml).
 The `targets.hosts` list should be updated to include endpoints of interest.
+
+## Sceenshots
+
+![Speedtest dashboard](./images/speedtest.png "Speedtest dashboard")
+![Smokeping dashboard](./images/smokeping.png "Smokeping dashboard")
