@@ -1,7 +1,7 @@
 # ISP Profiler
 
 After being repeatedly gaslit by my ISP, it was time to gather data of my home fibre
-network's performance.https://github.com/grafana/grafana/issues/10786
+network's performance.
 
 The system makes use of several Docker containers to gather, store and graph
 timeseries network data. It consists of:
@@ -52,8 +52,9 @@ file.
 Dashboards located in the 
 [provisioning dashboards directory](./config/grafana/provisioning/dashboards/)
 are automatically loaded. Dashboards that are created via this process
-do not support variables for connection names and so all connection names are
-hardcoded to `prometheus` to be consistent with the provisioned connection name.
+[do not support variables for connection names](https://github.com/grafana/grafana/issues/10786)
+and so all connection names are hardcoded to `prometheus` to be consistent
+with the provisioned connection name.
 
 The default account credentials have not been changed and are username `admin`
 and password `admin`.
