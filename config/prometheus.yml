@@ -7,14 +7,14 @@ scrape_configs:
     static_configs:
       - targets: ["localhost:9090"]
 
-  - job_name: "speedtest-probe"
+  - job_name: "speedtest-exporter"
     scrape_interval: 5m
     scrape_timeout: 2m
     static_configs:
-      - targets: ["speedtest-probe:9798"]
+      - targets: ["speedtest-exporter:9798"]
 
-  - job_name: "smokeping-probe"
+  - job_name: "smokeping-exporter"
     scrape_interval: 1m
     scrape_timeout: 15s
     static_configs:
-      - targets: ["smokeping-probe:9374"]
+      - targets: ["smokeping-exporter:9374"]

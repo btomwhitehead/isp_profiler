@@ -28,21 +28,25 @@ services:
     networks:
       - prometheus-network
     restart: unless-stopped
-  speedtest-probe:
-    # https://docs.miguelndecarvalho.pt/projects/speedtest-exporter/
+  prometheus-blackbox-exporter:
+    image: prom/blackbox-exporter
+    container_name: prometheus-blackbox-exporter
+    networks:
+      - prometheus-network
+    restart: unless-stopped
+  speedtest-exporter:
     image: miguelndecarvalho/speedtest-exporter:latest
-    container_name: speedtest-probe
+    container_name: speedtest-exporter
     environment:
       - SPEEDTEST_SERVER=20912 # Cool Ideas Cape Town
     networks:
       - prometheus-network
     restart: unless-stopped
-  smokeping-probe:
-    # https://github.com/SuperQ/smokeping_prober
+  smokeping-exporter:
     image: quay.io/superq/smokeping-prober:latest
-    container_name: smokeping-probe
+    container_name: smokeping-exporter
     volumes:
-      - ./config/smokeping_probe.yml:/config.yml
+      - ./config/smokeping_exporter.yml:/config.yml
     command: ["--config.file=config.yml"]
     networks:
       - prometheus-network

@@ -9,8 +9,8 @@ timeseries network data. It consists of:
 1. [Prometheus](https://prometheus.io/)
 2. [Grafana](https://grafana.com/)
 3. [speedtest exporter](https://github.com/MiguelNdeCarvalho/speedtest-exporter): 
-   A Prometheus probe using [Ookla Speedtest](https://speedtest.net)
-4. [smokeping prober](https://github.com/SuperQ/smokeping_prober): A smokeping implementation
+   A Prometheus exporter using [Ookla Speedtest](https://speedtest.net)
+4. [smokeping exporter](https://github.com/SuperQ/smokeping_prober): A smokeping implementation
    for Prometheus and Grafana
 
 ## Usage
@@ -37,7 +37,7 @@ Should any of the above need to change, they will likely require additional conf
 All prometheus configuration is set in the [prometheus config](./config/prometheus.yml).
 Metrics are set to be scraped every 1 minute by default and the config will be refreshed every 1 mimnute.
 
-Three job configurations for the speedtest probe, the smokeping probe and Prometheus itself.
+Three job configurations for the speedtest exporter, the smokeping exporter and Prometheus itself.
 
 ### Grafana
 
@@ -59,17 +59,17 @@ with the provisioned connection name.
 The default account credentials have not been changed and are username `admin`
 and password `admin`.
 
-### Probes
+### Exporters
 
-#### Speetest probe
+#### Speetest exporter
 
-The speedtest probe has no config and the Ookla Speedtest integer server ID,
+The speedtest exporter has no config and the Ookla Speedtest integer server ID,
 `SPEEDTEST_SERVER`is set via an environment variable in
 [docker-compose.yml](./docker-compose.yml). This should be adjusted to a speedtest server of interest.
 
-#### Smokeping probe
+#### Smokeping exporter
 
-The smokeping probe is configured using the [smokeping config](./config/smokeping_probe.yml).
+The smokeping exporter is configured using the [smokeping config](./config/smokeping_exporter.yml).
 The `targets.hosts` list should be updated to include endpoints of interest.
 
 ## Sceenshots
