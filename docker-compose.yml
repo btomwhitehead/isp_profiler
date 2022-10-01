@@ -6,10 +6,10 @@ volumes:
   grafana-data:
 services:
   prometheus:
-    image: ubuntu/prometheus:latest
+    image: prom/prometheus:latest
     container_name: prometheus
     volumes:
-      - prometheus-data:/var/lib/prometheus/data
+      - prometheus-data:/prometheus
       - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - prometheus-network
