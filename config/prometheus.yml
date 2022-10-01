@@ -23,7 +23,7 @@ scrape_configs:
     metrics_path: /probe
     params:
       module: [icmp]
-    scrape_interval: 1m
+    scrape_interval: 15s
     static_configs:
       - targets:
         - 1.1.1.1

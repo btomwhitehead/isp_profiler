@@ -367,8 +367,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Speedtest Dashboard",
+  "title": "Speedtest exporter",
   "uid": "-fs18ztMz",
   "version": 4,
-  "description": "Dashboard for Speedtest Exporter https://github.com/MiguelNdeCarvalho/speedtest-exporter"
+  "description": "Dashboard for Speedtest exporter: https://github.com/MiguelNdeCarvalho/speedtest-exporter"
 }
