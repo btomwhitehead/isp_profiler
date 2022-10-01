@@ -11,7 +11,10 @@ timeseries network data. It consists of:
 3. [speedtest exporter](https://github.com/MiguelNdeCarvalho/speedtest-exporter): 
    A Prometheus exporter using [Ookla Speedtest](https://speedtest.net)
 4. [smokeping exporter](https://github.com/SuperQ/smokeping_prober): A smokeping implementation
-   for Prometheus and Grafana
+   for Prometheus and Grafana used to visualise packet loss
+5. [Replacing smokeping with Prometheus](https://anarc.at/blog/2020-06-04-replacing-smokeping-prometheus/):
+   A [Prometheus blackbox exporter](https://github.com/prometheus/blackbox_exporter)
+   implementation of Smokeping
 
 ## Usage
 
@@ -72,7 +75,14 @@ The speedtest exporter has no config and the Ookla Speedtest integer server ID,
 The smokeping exporter is configured using the [smokeping config](./config/smokeping_exporter.yml).
 The `targets.hosts` list should be updated to include endpoints of interest.
 
+### Prometheus blackbox exporter ICMP implementation
+
+The blackbox exporter is, at present, configured in the [prometheus config](./config/prometheus.yml).
+The default blackbox exporter configuration is used. The `targets` list should be updated to
+include endpoints of interest.
+
 ## Sceenshots
 
 ![Speedtest dashboard](./images/speedtest.png "Speedtest dashboard")
 ![Smokeping dashboard](./images/smokeping.png "Smokeping dashboard")
+![ICMP dashboard](./images/icmp.png "ICMP dashboard")
