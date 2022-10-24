@@ -68,7 +68,8 @@ and password `admin`.
 
 The speedtest exporter has no config and the Ookla Speedtest integer server ID,
 `SPEEDTEST_SERVER`is set via an environment variable in
-[docker-compose.yml](./docker-compose.yml). This should be adjusted to a speedtest server of interest.
+[docker-compose.yml](./docker-compose.yml). This should be adjusted to a speedtest server of interest using
+and the server ID can be found using [this guide](https://www.dcmembers.com/skwire/how-to-find-a-speedtest-net-server-id/).
 
 #### Smokeping exporter
 
